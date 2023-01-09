@@ -1,14 +1,14 @@
-var numSquares = 6;
-var colors = [];
-var pickedColor;
-var squares = document.querySelectorAll(".square");
-var colorDisplay = document.getElementById("colorDisplay");
-var messageDisplay = document.querySelector("#message");
-var h1 = document.querySelector("h1");
-var resetButton = document.querySelector("#reset");
-var modeButtons = document.querySelectorAll(".mode");
-var clickedColor;
-var game = {}
+let numSquares = 6;
+let colors = [];
+let pickedColor;
+let squares = document.querySelectorAll(".square");
+let colorDisplay = document.getElementById("colorDisplay");
+let messageDisplay = document.querySelector("#message");
+let h1 = document.querySelector("h1");
+let resetButton = document.querySelector("#reset");
+let modeButtons = document.querySelectorAll(".mode");
+let clickedColor;
+let game = {}
 
 game.init = function(){
 setupModeButtons();
@@ -17,6 +17,19 @@ reset();
 }
 
 game.init();
+
+function modoOscuro() {
+  
+	document.getElementsByClassName('container')[0].classList.toggle('modo-oscuro');
+	document.getElementsByClassName('dark-mode-btn')[0].classList.toggle('modo-oscuro1');
+	document.querySelector('h1').classList.toggle('modo-oscuro');
+	document.getElementsByClassName('hamburger')[0].classList.toggle('modo-oscuro');
+	document.getElementsByClassName('active')[0].classList.toggle('modo-oscuro');
+	document.getElementById('palabraActual').classList.toggle('modo-oscuro');
+	for(let i = 0; i < 3; i++) {
+	  document.getElementsByClassName('varColor')[i].classList.toggle('modo-oscuro');
+	}
+  }
 
 function setupModeButtons(){
 	for(var i = 0; i < modeButtons.length; i++){
