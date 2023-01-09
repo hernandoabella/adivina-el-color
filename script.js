@@ -19,17 +19,12 @@ reset();
 game.init();
 
 function modoOscuro() {
-  
 	document.getElementsByClassName('container')[0].classList.toggle('modo-oscuro');
 	document.getElementsByClassName('dark-mode-btn')[0].classList.toggle('modo-oscuro1');
 	document.querySelector('h1').classList.toggle('modo-oscuro');
 	document.getElementsByClassName('hamburger')[0].classList.toggle('modo-oscuro');
 	document.getElementsByClassName('active')[0].classList.toggle('modo-oscuro');
-	document.getElementById('palabraActual').classList.toggle('modo-oscuro');
-	for(let i = 0; i < 3; i++) {
-	  document.getElementsByClassName('varColor')[i].classList.toggle('modo-oscuro');
-	}
-  }
+}
 
 function setupModeButtons(){
 	for(var i = 0; i < modeButtons.length; i++){
@@ -37,7 +32,7 @@ function setupModeButtons(){
 			modeButtons[0].classList.remove("selected");
 			modeButtons[1].classList.remove("selected");
 			this.classList.add("selected");
-			this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
+			this.textContent === "Fácil" ? numSquares = 3: numSquares = 6;
 			reset();
 		});
 	}
@@ -48,10 +43,9 @@ function setupSquares(){
 	
 		squares[i].addEventListener("click", function(){
 			if(this.style.backgroundColor === pickedColor){
-				messageDisplay.textContent = "Correct!";
+				messageDisplay.textContent = "¡Correcto!";
 				resetButton.textContent = "Play Again?";
 				changeColors(pickedColor);
-				h1.style.background = pickedColor;
 			} else {
 				this.style.backgroundColor = "#232323";
 				messageDisplay.textContent = "Try Again";
@@ -62,13 +56,13 @@ function setupSquares(){
 
 function reset(){
 	colors = generateRandomColors(numSquares);
-	//pick a new random color from array
+	// pick a new random color from array
 	pickedColor = pickColor();
-	//change colorDisplay to match picked Color
+	// change colorDisplay to match picked Color
 	colorDisplay.textContent = pickedColor;
-	resetButton.textContent = "New Colors"
+	resetButton.textContent = "Nuevos Colores"
 	messageDisplay.textContent = "";
-	//change colors of squares
+	// Cambiar colores de los cuadrados
 	for(var i = 0; i < squares.length; i++){
 		if(colors[i]){
 			squares[i].style.display = "block"
@@ -85,9 +79,9 @@ resetButton.addEventListener("click", function(){
 })
 
 function changeColors(color){
-	//loop through all squares
+	// Hacer loop a través de todos los cuadrados
 	for(var i = 0; i < squares.length; i++){
-		//change each color to match given color
+		// change each color to match given color
 		squares[i].style.backgroundColor = color;
 	}
 }
