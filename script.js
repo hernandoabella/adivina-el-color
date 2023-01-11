@@ -43,12 +43,12 @@ function setupSquares(){
 	
 		squares[i].addEventListener("click", function(){
 			if(this.style.backgroundColor === pickedColor){
-				messageDisplay.textContent = "¡Correcto!";
-				resetButton.textContent = "Play Again?";
+				messageDisplay.textContent = "¡Lo adivinaste 🎉!";
+				resetButton.textContent = "Jugar de nuevo";
 				changeColors(pickedColor);
 			} else {
-				this.style.backgroundColor = "#232323";
-				messageDisplay.textContent = "Try Again";
+				this.style.backgroundColor = "steelblue";
+				messageDisplay.textContent = "¡Intentalo nuevamente! 🔁";
 			}
 		});
 	}
@@ -61,7 +61,7 @@ function reset(){
 	// change colorDisplay to match picked Color
 	colorDisplay.textContent = pickedColor;
 	resetButton.textContent = "Nuevos Colores"
-	messageDisplay.textContent = "";
+	messageDisplay.textContent = "Selecciona un color 😊";
 	// Cambiar colores de los cuadrados
 	for(var i = 0; i < squares.length; i++){
 		if(colors[i]){
